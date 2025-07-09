@@ -38,12 +38,9 @@ public protocol Model {
 	mutating func update(msg: RBMessage) -> Command?
 	/// The textual representation of this model. This is what is rendered to the terminal. Be sure to use the String extensions provided by this package for proper formatting.
 	var body: String { get }
-	var messageBroker: MessageBroker? { get set }
 }
 public extension Model {
 	func startup() -> Command? {
 		nil
 	}
-	
-	var messageBroker: MessageBroker? { nil }
 }
