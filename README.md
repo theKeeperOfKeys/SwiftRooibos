@@ -1,6 +1,6 @@
 # Rooibos
 
-Rooibos TeaUI, terminal UI (TUI) package for Swift, inspired by Go’s [Bubble Tea](https://github.com/charmbracelet/bubbletea), with a some object-oriented design for my sanity.
+Rooibos TeaUI, is a terminal UI (TUI) package for Swift, inspired by Go’s [Bubble Tea](https://github.com/charmbracelet/bubbletea), with a some object-oriented design for my sanity.
 
 > ☕️ Like its namesake tea, Rooibos is lightweight, smooth, and plain.
 
@@ -48,16 +48,15 @@ Using **Swift Package Manager**:
 
 ## Usage
 
-Usage examples will be added once the library matures and the API stabilizes. For now, explore the Sources/Example/ folder or read the source code.
+Usage examples will be added once the library matures and the API stabilizes. For now, explore the Sources/Example/ folder or read the source code. 
 
 ---
 
 ## Contributing
 
 Want to help improve Rooibos?
-Amazing! I'm sure that there are people who are much smarter than me.
 
 - Refactor or optimize event handling
 - Add proper documentation
-- Clean up AI-generated code (PLEASE 😭)
+- Replace AI-generated code (PLEASE 😭)
 - Propose new features or patterns
