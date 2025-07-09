@@ -24,7 +24,6 @@ public actor Program {
 	
 	public init(model: Model) {
 		currentModel = model
-		currentModel.messageBroker = Program.messageBroker
 		inputReader = InputReader()
 	}
 	
