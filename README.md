@@ -1,4 +1,4 @@
-# Rooibos
+# Rooibos TeaUI
 
 Rooibos TeaUI, is a terminal UI (TUI) package for Swift, inspired by Go’s [Bubble Tea](https://github.com/charmbracelet/bubbletea), with a some object-oriented design for my sanity.
 
@@ -37,7 +37,9 @@ Using **Swift Package Manager**:
 
 1. Add Rooibos to your `Package.swift` dependencies:
    ```swift
-   .package(url: "https://github.com/theKeeperOfKeys/SwiftRooibos.git", from: "0.1.0")
+   .package(url: "https://github.com/theKeeperOfKeys/SwiftRooibos.git", branch: "main")
+   ...
+   .product(name: "Rooibos", package: "swiftrooibos")
    ```
 2. Import the package in your code
    ```swift
