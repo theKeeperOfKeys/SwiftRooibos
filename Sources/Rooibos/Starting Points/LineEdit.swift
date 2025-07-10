@@ -25,7 +25,7 @@ public class LineEdit: Model, Focusable {
 	let placeholder: String
 	let label: String
 	
-	var value: String = ""
+	public var value: String = ""
 		
 	public init(label: String, placeholder: String = "", maxChars: Int? = nil, allowOnly: CharacterSet? = nil, dontAllow: CharacterSet? = nil) {
 		self.label = label

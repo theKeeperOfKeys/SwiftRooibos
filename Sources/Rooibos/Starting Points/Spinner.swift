@@ -15,7 +15,7 @@ public class Spinner: Model, Focusable {
 	/// If true, this item's grey blur from being disabled will not be terminated and thus extend beyond its own view.
 	var escapingDisabledColor: Bool
 	
-	var value: Int
+	public var value: Int
 	let min: Int?
 	let max: Int?
 	let step: Int
