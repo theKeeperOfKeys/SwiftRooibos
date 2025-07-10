@@ -54,7 +54,9 @@ public class Button: Model, Focusable {
 	
 	public var body: String {
 		var view = "[\(label)]"
-		if focused {
+		if disabled {
+			view.color(.darkGrey)
+		} else if focused {
 			view.color(.blue)
 		}
 		return view
