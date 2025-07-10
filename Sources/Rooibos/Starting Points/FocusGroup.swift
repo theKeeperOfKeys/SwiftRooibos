@@ -40,6 +40,13 @@ public class FocusGroup {
 	}
 	
 	
+	public func focus(_ idx: Int) {
+		items[focusedItem].focused = false
+		items[idx].focused = true
+		focusedItem = idx
+	}
+	
+	
 	/// Returns the currently focused item so you can update it manually.
 	public func getFocused() -> any Focusable & Model {
 		items[focusedItem]
