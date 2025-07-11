@@ -84,6 +84,8 @@ public class LineEdit: Model, Focusable {
 						if value.popLast() == nil { // could not pop?
 							beep()
 						}
+					case .return:
+						return FocusGroupCmd.focusNext
 					default: break
 				}
 			default: break

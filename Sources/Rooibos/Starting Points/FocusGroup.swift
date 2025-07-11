@@ -8,6 +8,12 @@
 import Foundation
 
 
+public enum FocusGroupCmd: Command {
+	case focusNext
+	case focusPrev
+}
+
+
 public class FocusGroup {
 	public var items: [any Focusable & Model]
 	public private(set) var focusedItem: Int = 0
@@ -55,9 +61,20 @@ public class FocusGroup {
 	
 	/// Updates the currently focused item.
 	/// - Parameter msg: Message to send to the item.
-	/// - Returns: Command returned.
+	/// - Returns: Command returned. Will consume and process ``FocusGroupCmd``s instead of letting them surface.
 	public func updateFocused(msg: any RBMessage) -> (any Command)? {
-		items[focusedItem].update(msg: msg)
+		let cmd = items[focusedItem].update(msg: msg)
+		if let cmd = cmd as? FocusGroupCmd {
+			switch cmd {
+				case .focusNext:
+					focusNext()
+				case .focusPrev:
+					focusPrev()
+			}
+			return nil
+		}
+		
+		return cmd
 	}
 	
 	
