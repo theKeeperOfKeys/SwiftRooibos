@@ -103,7 +103,7 @@ public actor Program {
 					currentModel = newModel
 			}
 		default:
-			fatalError("Non-app command was surfaced to top level.")
+			break
 		}
 	}
 	
