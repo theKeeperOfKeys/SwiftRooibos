@@ -21,7 +21,6 @@ public enum KeyPress: RBMessage, CustomStringConvertible {
 	case pageDown
 	case tab
 	case `return`
-	//case enter
 	case end
 	case home
 	case fn
@@ -95,6 +94,7 @@ public enum WindowMsg: RBMessage {
 //	/// Notification for when the window gains focus.
 //	case focusGained
 	/// Notification for when the window is resized. Includes the new dimensions.
+	/// Currently not implemented.
 	case resized((x: Int, y: Int))
 }
 

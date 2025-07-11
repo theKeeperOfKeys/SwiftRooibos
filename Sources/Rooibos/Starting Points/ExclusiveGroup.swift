@@ -21,7 +21,6 @@ public class ExclusiveGroup {
 	
 	public func add(_ toggle: Toggle) {
 		items.append(toggle)
-//		await toggle.addExclusiveGroup(self)
 		toggle.exclusiveGroup = self
 	}
 	
@@ -29,10 +28,8 @@ public class ExclusiveGroup {
 	public func toggle(_ selectedToggle: Toggle) {
 		// Turn off all other toggles that are on.
 		for toggle in items where toggle !== selectedToggle {
-//			await toggle.set(to: false)
 			toggle.on = false
 		}
-//		await selectedToggle.toggle()
 		selectedToggle.on.toggle()
 	}
 }

@@ -36,38 +36,6 @@ public class Toggle: Model, Focusable, Equatable {
 		self.id = UUID()
 	}
 	
-//	public func addExclusiveGroup(_ group: ExclusiveGroup) {
-//		exclusiveGroup = group
-//	}
-//	
-//	public func focus() async {
-//		focused = true
-//	}
-//	
-//	public func unfocus() async {
-//		focused = false
-//	}
-//	
-//	public func enable() async {
-//		disabled = false
-//	}
-//	
-//	public func disable() async {
-//		if uncheckWhenDisabled {
-//			_on = false
-//		}
-//		disabled = true
-//	}
-//	
-//	public func set(to newVal: Bool) {
-//		_on = newVal
-//	}
-//	
-//	public func toggle() {
-//		_on.toggle()
-//	}
-	
-	
 	public func update(msg: any RBMessage) -> (any Command)? {
 		guard focused else {
 			return nil

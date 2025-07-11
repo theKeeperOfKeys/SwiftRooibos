@@ -8,6 +8,7 @@
 import Foundation
 
 public actor MessageBroker {
+	// Author: Claude AI
 	private var messageQueue: [RBMessage] = []
 	private var continuation: AsyncStream<RBMessage>.Continuation?
 	

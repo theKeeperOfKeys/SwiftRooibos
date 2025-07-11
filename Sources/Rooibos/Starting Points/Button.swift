@@ -18,22 +18,6 @@ public class Button: Model, Focusable {
 		self.label = label
 		self.action = action
 	}
-	
-//	public func focus() async {
-//		focused = true
-//	}
-//	
-//	public func unfocus() async {
-//		focused = false
-//	}
-//	
-//	public func enable() async {
-//		disabled = false
-//	}
-//	
-//	public func disable() async {
-//		disabled = true
-//	}
 		
 	public func update(msg: any RBMessage) -> (any Command)? {
 		guard focused else {

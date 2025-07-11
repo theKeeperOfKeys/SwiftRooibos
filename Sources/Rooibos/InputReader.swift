@@ -10,26 +10,6 @@ import Foundation
 
 class InputReader {
 	// Author: ClaudeAI
-	
-//	func getKeyPress() async throws -> KeyPress? {
-//		return await withCheckedContinuation { continuation in
-//			Task.detached {
-//				// Poll for input with a very short timeout
-//				while !Task.isCancelled {
-//					if  self.isDataAvailable(timeoutMs: 1) { // 1ms timeout
-//						if let char = self.readChar() {
-//							continuation.resume(returning: self.parseChar(char))
-//							return
-//						}
-//					}
-//					// Yield control back to the runtime frequently
-//					try? await Task.sleep(nanoseconds: 100_000) // 0.1ms
-//				}
-//				continuation.resume(returning: nil)
-//			}
-//		}
-//	}
-	
 	func getKeyPress() -> KeyPress? {
 		guard isDataAvailable(timeoutMs: 0) else {
 			return nil // No data available, return immediatly
@@ -101,6 +81,7 @@ class InputReader {
 		 }
 		 
 		// Parse other escape sequences here.
+		
 		 return .escape
 	}
 	

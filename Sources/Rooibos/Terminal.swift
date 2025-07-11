@@ -137,9 +137,6 @@ func crashHandler(signal: Int32) -> Void {
 		case SIGTRAP: print("SIGTRAP (Trace trap was triggered) - An internal saftey check did no pass. No more information given.", terminator: "\n\r")
 		case SIGINT: print("SIGINT (Inturrupt) - The program was interrupted.", terminator: "\n\r")
 		case SIGSEGV: print("SIGSEGV (Segmentation fault) - Data entered a corrupted and irrecoverable state which forced the program to exit.", terminator: "\n\r")
-		//case SIGABRT: print("SIGABRT (Aborted) - ", terminator: "\n\r")
-		//case SIGFPE: print("SIGFPE (Floating point exception) - ", terminator: "\n\r")
-		//case SIGILL: print("SIGILL (Illegal instruction) - ", terminator: "\n\r")
 		case SIGQUIT: print("SIGQUIT (Quit) - The program was forced to quit.", terminator: "\n\r")
 		default: print("EXC - The program encountered exeption number \(signal)", terminator: "\n\r")
 	}

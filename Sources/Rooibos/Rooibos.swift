@@ -19,8 +19,6 @@ public actor Program {
 	let inputReader: InputReader
 	var currentModel: Model
 	var isRunning = false
-	//var backgroundTasks: [Task<Void, Never>] = []
-	
 	
 	public init(model: Model) {
 		currentModel = model
@@ -109,13 +107,6 @@ public actor Program {
 	
 	
 	func setupTerminal() throws -> termios {
-//		var originalTermSetting = termios()
-//		
-//		if unsafeGlobalOriginalTerminal == nil {
-//			unsafeGlobalOriginalTerminal = originalTermSetting
-//		}
-		
-		
 		guard isatty(STDIN_FILENO) != 0 else {
 			throw RawModeError.notATerminal
 		}

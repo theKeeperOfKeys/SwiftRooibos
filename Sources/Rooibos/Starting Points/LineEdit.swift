@@ -35,12 +35,6 @@ public class LineEdit: Model, Focusable {
 		self.maxChars = maxChars
 	}
 	
-//	public func focus() async { focused = true }
-//	public func unfocus() async { focused = false }
-//	public func enable() async { disabled = false }
-//	public func disable() async { disabled = true }
-	
-	
 	func addCharacter(_ char: Character) {
 		if let maxChars {
 			guard value.count < maxChars else {
