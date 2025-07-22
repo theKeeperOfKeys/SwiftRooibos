@@ -85,7 +85,7 @@ class ExampleModel: Model {
 		switch msg {
 			case let msg as KeyPress: switch msg {
 				case .escape:
-					return AppCmd.quit
+					return AppCmd.quit()
 				
 				case .up, .pageUp:
 					focusGroup.focusPrev()

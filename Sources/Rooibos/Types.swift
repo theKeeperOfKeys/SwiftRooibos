@@ -24,7 +24,7 @@ public protocol Command {}
 
 /// A command for the ``Program`` to preform.
 public enum AppCmd: Command {
-	case quit
+	case quit(String? = nil)
 	case changeModel(any Model)
 }
 

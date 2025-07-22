@@ -19,6 +19,7 @@ public actor Program {
 	let inputReader: InputReader
 	var currentModel: Model
 	var isRunning = false
+	var exitMsg: String?
 	
 	public init(model: Model) {
 		currentModel = model
@@ -40,6 +41,7 @@ public actor Program {
 		
 		defer {
 			restoreTerminal(to: &original)
+			print(exitMsg ?? "")
 		}
 		
 		try await startMainLoop()
@@ -94,8 +96,9 @@ public actor Program {
 		switch command {
 		case let command as AppCmd:
 			switch command {
-				case .quit:
+				case .quit(let msg):
 					isRunning = false
+					exitMsg = msg
 					
 				case .changeModel(let newModel):
 					currentModel = newModel
@@ -107,6 +110,7 @@ public actor Program {
 	
 	
 	func setupTerminal() throws -> termios {
+		// Author: ClaudeAI
 		guard isatty(STDIN_FILENO) != 0 else {
 			throw RawModeError.notATerminal
 		}
@@ -124,9 +128,12 @@ public actor Program {
 
 		var raw = originalTermSetting
 		raw.c_iflag &= ~(UInt(BRKINT) | UInt(ICRNL) | UInt(INPCK) | UInt(ISTRIP) | UInt(IXON))
-		raw.c_oflag &= ~(UInt(OPOST))
+		raw.c_oflag &= ~(UInt(OPOST)) // diable implementation-defined output processing
 		raw.c_cflag |= UInt(CS8)
-		raw.c_lflag &= ~(UInt(ECHO) | UInt(ICANON) | UInt(IEXTEN) | UInt(ISIG))
+		// ECHO: disable echo of typed characters.
+		// ICANON: disable line buffering. Get input character-by-character.
+		// ISIG: disable processing of inturrupt characters.
+		raw.c_lflag &= ~(UInt(ECHO) | UInt(ICANON) | UInt(IEXTEN) /*| UInt(ISIG)*/)
 		raw.c_cc.16 = 1 // VMIN
 		raw.c_cc.17 = 0 // VTIME
 
